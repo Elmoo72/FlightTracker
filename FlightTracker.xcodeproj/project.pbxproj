@@ -20,34 +20,9 @@
 		A232C154B30B1E31FBEE9647 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02059FABF169DB5CAFA7F8A4 /* Airport.swift */; };
 		C34A3A5EEF142F4AAEE4035A /* FlightTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835FBCBBA19B4597F1BC216 /* FlightTrackerApp.swift */; };
 		C42151A15D8A6F424F87D5A8 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C3670A1522B02D9C901F94 /* SharedModels.swift */; };
-		D87057630E9A580E8AB3660D /* FlightTrackerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1F9B206FE10F4B8BE4716133 /* FlightTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EEA07F43CB17FC07A20B6B48 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108903163F823E64A7D8C9E3 /* FlightDetailView.swift */; };
 		F37458AE6332227A948B0FBF /* FlightCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F6D41193587D9E364B7A5 /* FlightCardView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C2276094E563469F844952C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E060891A9ED6AFDF68B57A80 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D745DFE88B1B997C64FFFFC5;
-			remoteInfo = FlightTrackerWidgetExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E720A4D8C07E8485A7F52032 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				D87057630E9A580E8AB3660D /* FlightTrackerWidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02059FABF169DB5CAFA7F8A4 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
@@ -166,12 +141,10 @@
 			buildPhases = (
 				28C04E1A7AF84F09398CE2D8 /* Sources */,
 				AD908A142E241F5E471D20A5 /* Resources */,
-				E720A4D8C07E8485A7F52032 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				198B3138232D843F746FAF19 /* PBXTargetDependency */,
 			);
 			name = FlightTracker;
 			packageProductDependencies = (
@@ -286,14 +259,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		198B3138232D843F746FAF19 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D745DFE88B1B997C64FFFFC5 /* FlightTrackerWidgetExtension */;
-			targetProxy = C2276094E563469F844952C0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		12E78C41F996498CBEECD886 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -368,6 +333,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
@@ -463,6 +429,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
