@@ -2,16 +2,35 @@ import SwiftUI
 
 struct FlightCardView: View {
     let flight: Flight
+    let timeUntilDeparture: String
+    let timeUntilBoarding: String?
+    let isToday: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Header: Flight number + Status
+            // Header: Flight number + Status + Today badge
             HStack {
-                Text(flight.flightNumber)
-                    .font(.headline)
-                    .fontWeight(.bold)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(flight.flightNumber)
+                        .font(.headline)
+                        .fontWeight(.bold)
+                    Text(flight.airline)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
 
                 Spacer()
+
+                if isToday {
+                    Text("СЕГОДНЯ")
+                        .font(.caption2)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(.blue)
+                        .clipShape(Capsule())
+                }
 
                 StatusBadge(status: flight.status)
             }
@@ -21,7 +40,7 @@ struct FlightCardView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(flight.departure.code)
                         .font(.title2)
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                     Text(flight.departure.city)
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -44,12 +63,38 @@ struct FlightCardView: View {
                 VStack(alignment: .trailing, spacing: 2) {
                     Text(flight.arrival.code)
                         .font(.title2)
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                     Text(flight.arrival.city)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
             }
+
+            // Countdown timer
+            HStack {
+                Image(systemName: "clock.fill")
+                    .foregroundStyle(.orange)
+                Text(timeUntilDeparture)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.primary)
+
+                Spacer()
+
+                if let boarding = timeUntilBoarding {
+                    HStack(spacing: 4) {
+                        Image(systemName: "door.left.hand.open")
+                            .foregroundStyle(.blue)
+                        Text(boarding)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+            .background(Color(.tertiarySystemGroupedBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 8))
 
             Divider()
 
@@ -133,6 +178,11 @@ struct StatusBadge: View {
 }
 
 #Preview {
-    FlightCardView(flight: .mock)
-        .padding()
+    FlightCardView(
+        flight: .mock,
+        timeUntilDeparture: "Через 4ч 30мин",
+        timeUntilBoarding: "Посадка через 3ч 45мин",
+        isToday: true
+    )
+    .padding()
 }

@@ -29,6 +29,23 @@ struct FlightListView: View {
                     viewModel.addFlight(flight)
                 }
             }
+            .overlay {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.ultraThinMaterial)
+                }
+            }
+            .alert("Ошибка", isPresented: .constant(viewModel.errorMessage != nil)) {
+                Button("OK") {
+                    viewModel.errorMessage = nil
+                }
+            } message: {
+                if let error = viewModel.errorMessage {
+                    Text(error)
+                }
+            }
         }
     }
 
@@ -49,7 +66,12 @@ struct FlightListView: View {
         List {
             ForEach(viewModel.flights) { flight in
                 NavigationLink(destination: FlightDetailView(flight: flight)) {
-                    FlightCardView(flight: flight)
+                    FlightCardView(
+                        flight: flight,
+                        timeUntilDeparture: viewModel.timeUntilDeparture(flight),
+                        timeUntilBoarding: viewModel.timeUntilBoarding(flight),
+                        isToday: viewModel.isFlightToday(flight)
+                    )
                 }
                 .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
@@ -57,7 +79,7 @@ struct FlightListView: View {
         }
         .listStyle(.plain)
         .refreshable {
-            // Refresh from API
+            await viewModel.refreshFlights()
         }
     }
 }

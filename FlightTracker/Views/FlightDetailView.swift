@@ -2,10 +2,16 @@ import SwiftUI
 
 struct FlightDetailView: View {
     let flight: Flight
+    @State private var currentTime = Date()
+
+    private let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
+                // Countdown card
+                countdownCard
+
                 // Main flight info card
                 flightInfoCard
 
@@ -26,6 +32,74 @@ struct FlightDetailView: View {
         }
         .navigationTitle(flight.flightNumber)
         .navigationBarTitleDisplayMode(.inline)
+        .onReceive(timer) { _ in
+            currentTime = Date()
+        }
+    }
+
+    private var countdownCard: some View {
+        VStack(spacing: 16) {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("До вылета")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Text(timeUntilDeparture)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(departureColor)
+                }
+
+                Spacer()
+
+                Image(systemName: "airplane.departure")
+                    .font(.largeTitle)
+                    .foregroundStyle(.blue)
+            }
+
+            Divider()
+
+            if let boarding = timeUntilBoarding {
+                HStack {
+                    Image(systemName: "door.left.hand.open")
+                        .foregroundStyle(.orange)
+                    Text(boarding)
+                        .font(.headline)
+                    Spacer()
+                }
+            }
+
+            // Progress bar
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color(.tertiarySystemFill))
+                        .frame(height: 8)
+
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(progressColor)
+                        .frame(width: geometry.size.width * progress, height: 8)
+                }
+            }
+            .frame(height: 8)
+
+            HStack {
+                Text("Сейчас")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Text("Посадка")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Text("Вылет")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .padding()
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     private var flightInfoCard: some View {
@@ -61,7 +135,7 @@ struct FlightDetailView: View {
                         .rotationEffect(.degrees(90))
 
                     if let delay = flight.delayMinutes, delay > 0 {
-                        Text("+\(delay) min")
+                        Text("+\(delay) мин")
                             .font(.caption)
                             .foregroundStyle(.red)
                     }
@@ -207,6 +281,64 @@ struct FlightDetailView: View {
             .background(Color(.secondarySystemGroupedBackground))
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
+    }
+
+    // MARK: - Helpers
+
+    private var timeUntilDeparture: String {
+        let interval = flight.departureTime.timeIntervalSince(currentTime)
+        if interval < 0 { return "Вылетел" }
+
+        let hours = Int(interval) / 3600
+        let minutes = (Int(interval) % 3600) / 60
+
+        if hours > 24 {
+            let days = hours / 24
+            return "\(days)д \(hours % 24)ч"
+        } else if hours > 0 {
+            return "\(hours)ч \(minutes)мин"
+        } else {
+            return "\(minutes)мин"
+        }
+    }
+
+    private var timeUntilBoarding: String? {
+        guard let boardingTime = flight.boardingTime else { return nil }
+        let interval = boardingTime.timeIntervalSince(currentTime)
+        if interval < 0 { return "Посадка началась" }
+
+        let hours = Int(interval) / 3600
+        let minutes = (Int(interval) % 3600) / 60
+
+        if hours > 0 {
+            return "Посадка через \(hours)ч \(minutes)мин"
+        } else {
+            return "Посадка через \(minutes)мин"
+        }
+    }
+
+    private var progress: CGFloat {
+        guard let boardingTime = flight.boardingTime else { return 0 }
+
+        let totalDuration = flight.departureTime.timeIntervalSince(boardingTime)
+        let elapsed = currentTime.timeIntervalSince(boardingTime)
+
+        let p = CGFloat(elapsed / totalDuration)
+        return min(max(p, 0), 1)
+    }
+
+    private var departureColor: Color {
+        let interval = flight.departureTime.timeIntervalSince(currentTime)
+        if interval < 3600 { return .red } // Less than 1 hour
+        if interval < 7200 { return .orange } // Less than 2 hours
+        return .primary
+    }
+
+    private var progressColor: Color {
+        let interval = flight.departureTime.timeIntervalSince(currentTime)
+        if interval < 3600 { return .red }
+        if interval < 7200 { return .orange }
+        return .blue
     }
 }
 
