@@ -17,6 +17,7 @@
 		2CC3F0CE9455CB3259A11B53 /* FlightAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F1E424DD52C74BCA77F039 /* FlightAPIService.swift */; };
 		3EB8D574080424DB27BD1B47 /* BoardingPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9273449E92D005F207538 /* BoardingPassView.swift */; };
 		6312B8E2F5B051AE2FBCD434 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C3CC18711409FEE444AE195 /* Assets.xcassets */; };
+		7E86B22257608B1CB5634FAF /* AirportDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A03C623931016E574A27B6 /* AirportDatabase.swift */; };
 		96F04F3D126454D3EA669571 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0DA762F52E32639C51C62903 /* Localizable.xcstrings */; };
 		A232C154B30B1E31FBEE9647 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02059FABF169DB5CAFA7F8A4 /* Airport.swift */; };
 		C34A3A5EEF142F4AAEE4035A /* FlightTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835FBCBBA19B4597F1BC216 /* FlightTrackerApp.swift */; };
@@ -36,6 +37,7 @@
 		4C0F6D41193587D9E364B7A5 /* FlightCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCardView.swift; sourceTree = "<group>"; };
 		617100FAC5AC95137371A20C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62C3670A1522B02D9C901F94 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		74A03C623931016E574A27B6 /* AirportDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportDatabase.swift; sourceTree = "<group>"; };
 		81E676008069B1DE27CF4D54 /* FlightWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightWidget.swift; sourceTree = "<group>"; };
 		827385B88A89BCE1433E3006 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		8ED9273449E92D005F207538 /* BoardingPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingPassView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				02059FABF169DB5CAFA7F8A4 /* Airport.swift */,
+				74A03C623931016E574A27B6 /* AirportDatabase.swift */,
 				827385B88A89BCE1433E3006 /* Flight.swift */,
 			);
 			path = Models;
@@ -252,6 +255,7 @@
 			files = (
 				1539839CEEEAB8F64EC105EA /* AddFlightView.swift in Sources */,
 				A232C154B30B1E31FBEE9647 /* Airport.swift in Sources */,
+				7E86B22257608B1CB5634FAF /* AirportDatabase.swift in Sources */,
 				3EB8D574080424DB27BD1B47 /* BoardingPassView.swift in Sources */,
 				10DC6625644E4E0432BE2178 /* Flight.swift in Sources */,
 				2CC3F0CE9455CB3259A11B53 /* FlightAPIService.swift in Sources */,

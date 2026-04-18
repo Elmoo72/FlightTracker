@@ -88,16 +88,19 @@ actor FlightAPIService {
     // MARK: - Mapping
 
     private func mapToFlight(_ data: AirLabsFlightData) -> Flight {
+        let depIata = data.depIata ?? "---"
+        let arrIata = data.arrIata ?? "---"
+
         let departure = Airport(
-            code: data.depIata ?? "---",
-            name: data.depIata ?? "Unknown",
-            city: data.depIata ?? "Unknown"
+            code: depIata,
+            name: AirportDatabase.airportName(for: depIata),
+            city: AirportDatabase.city(for: depIata)
         )
 
         let arrival = Airport(
-            code: data.arrIata ?? "---",
-            name: data.arrIata ?? "Unknown",
-            city: data.arrIata ?? "Unknown"
+            code: arrIata,
+            name: AirportDatabase.airportName(for: arrIata),
+            city: AirportDatabase.city(for: arrIata)
         )
 
         // Parse departure time

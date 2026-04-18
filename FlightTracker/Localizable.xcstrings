@@ -183,6 +183,36 @@
         "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отмена" } }
       }
     },
+    "add_flight_search_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Find Flight" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Найти рейс" } }
+      }
+    },
+    "add_flight_search_hint" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter the IATA flight number, e.g. SU1234 or BA456" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Введите номер рейса, например SU1234 или BA456" } }
+      }
+    },
+    "add_flight_section_found" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Found Flight" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Найденный рейс" } }
+      }
+    },
+    "add_flight_confirm_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Confirm Flight" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Подтвердить рейс" } }
+      }
+    },
+    "add_flight_back" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Back" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Назад" } }
+      }
+    },
     "flights_title" : {
       "comment" : "Main screen navigation title",
       "localizations" : {
