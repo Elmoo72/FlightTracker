@@ -1,9 +1,13 @@
 import Foundation
 
 actor FlightAPIService {
-    // AirLabs API (free tier available)
-    // Get your API key at: https://airlabs.co/
-    private let apiKey = "YOUR_API_KEY_HERE"
+    private let apiKey: String = {
+        guard let key = Bundle.main.infoDictionary?["AIRLABS_API_KEY"] as? String,
+              !key.isEmpty, key != "YOUR_API_KEY_HERE" else {
+            return ""
+        }
+        return key
+    }()
     private let baseURL = "https://airlabs.co/api/v9"
 
     enum APIError: Error, LocalizedError {

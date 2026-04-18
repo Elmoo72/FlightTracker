@@ -17,6 +17,7 @@
 		2CC3F0CE9455CB3259A11B53 /* FlightAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F1E424DD52C74BCA77F039 /* FlightAPIService.swift */; };
 		3EB8D574080424DB27BD1B47 /* BoardingPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9273449E92D005F207538 /* BoardingPassView.swift */; };
 		6312B8E2F5B051AE2FBCD434 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C3CC18711409FEE444AE195 /* Assets.xcassets */; };
+		96F04F3D126454D3EA669571 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0DA762F52E32639C51C62903 /* Localizable.xcstrings */; };
 		A232C154B30B1E31FBEE9647 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02059FABF169DB5CAFA7F8A4 /* Airport.swift */; };
 		C34A3A5EEF142F4AAEE4035A /* FlightTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835FBCBBA19B4597F1BC216 /* FlightTrackerApp.swift */; };
 		C42151A15D8A6F424F87D5A8 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C3670A1522B02D9C901F94 /* SharedModels.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		02059FABF169DB5CAFA7F8A4 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		0DA762F52E32639C51C62903 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		108903163F823E64A7D8C9E3 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		1835FBCBBA19B4597F1BC216 /* FlightTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTrackerApp.swift; sourceTree = "<group>"; };
 		1F9B206FE10F4B8BE4716133 /* FlightTrackerWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FlightTrackerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +40,7 @@
 		827385B88A89BCE1433E3006 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		8ED9273449E92D005F207538 /* BoardingPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardingPassView.swift; sourceTree = "<group>"; };
 		AA907EAA3FAE6D1EE9026378 /* FlightWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightWidgetBundle.swift; sourceTree = "<group>"; };
+		AC1CC40D275EF77A46D625F9 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BC676917F1D65BF86C8AE4DE /* FlightTracker.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FlightTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F1E424DD52C74BCA77F039 /* FlightAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightAPIService.swift; sourceTree = "<group>"; };
 		E7BE997B56BCF06F8B7D2807 /* FlightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListView.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1835FBCBBA19B4597F1BC216 /* FlightTrackerApp.swift */,
+				0DA762F52E32639C51C62903 /* Localizable.xcstrings */,
 				CF25AA01E284D9A00B153A75 /* Models */,
 				D8CA315E93B2797D93CD55BE /* Resources */,
 				409AFB74C5B9B841A8383745 /* Services */,
@@ -106,6 +110,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AFD710501129A48548DEBA53 /* FlightTracker */ = {
+			isa = PBXGroup;
+			children = (
+				AC1CC40D275EF77A46D625F9 /* Config.xcconfig */,
+			);
+			name = FlightTracker;
+			path = .;
+			sourceTree = "<group>";
+		};
 		CF25AA01E284D9A00B153A75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				70B0EFCA18C05185DE02917B /* FlightTracker */,
+				AFD710501129A48548DEBA53 /* FlightTracker */,
 				71335AF250B7A8C0D72091C6 /* FlightTrackerWidget */,
 				1984D2C271E3A3A30EF9E4F7 /* Products */,
 			);
@@ -196,6 +210,7 @@
 			knownRegions = (
 				Base,
 				en,
+				ru,
 			);
 			mainGroup = E584A558A0E96A67DEEFE918;
 			minimizedProjectReferenceProxies = 1;
@@ -224,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03DFEF3FBEED283A14C10854 /* Assets.xcassets in Resources */,
+				96F04F3D126454D3EA669571 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,11 +278,14 @@
 /* Begin XCBuildConfiguration section */
 		12E78C41F996498CBEECD886 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC1CC40D275EF77A46D625F9 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_LANGUAGE = en;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_AIRLABS_API_KEY = "$(AIRLABS_API_KEY)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -282,11 +301,14 @@
 		};
 		30628D9580107BAD287DBC78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC1CC40D275EF77A46D625F9 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_LANGUAGE = en;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_AIRLABS_API_KEY = "$(AIRLABS_API_KEY)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;

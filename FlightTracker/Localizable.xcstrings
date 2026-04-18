@@ -1,0 +1,195 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "boarding_pass_from" : {
+      "comment" : "Departure airport label on boarding pass",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "FROM" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "ОТКУДА" } }
+      }
+    },
+    "boarding_pass_to" : {
+      "comment" : "Arrival airport label on boarding pass",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "TO" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "КУДА" } }
+      }
+    },
+    "boarding_pass_date" : {
+      "comment" : "Date column header on boarding pass",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "DATE" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "ДАТА" } }
+      }
+    },
+    "boarding_pass_boarding" : {
+      "comment" : "Boarding time column header",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "BOARDING" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "ПОСАДКА" } }
+      }
+    },
+    "boarding_pass_terminal" : {
+      "comment" : "Terminal column header on boarding pass",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "TERMINAL" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "ТЕРМИНАЛ" } }
+      }
+    },
+    "boarding_pass_gate" : {
+      "comment" : "Gate column header on boarding pass",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "GATE" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "ВЫХОД" } }
+      }
+    },
+    "boarding_pass_scan_hint" : {
+      "comment" : "Hint text below QR code",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan at boarding gate" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отсканируйте на выходе" } }
+      }
+    },
+    "boarding_pass_passenger" : {
+      "comment" : "Section header for passenger info",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Passenger" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Пассажир" } }
+      }
+    },
+    "boarding_pass_not_specified" : {
+      "comment" : "Placeholder when passenger name is not set",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not specified" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Не указано" } }
+      }
+    },
+    "boarding_pass_doc_last_four" : {
+      "comment" : "Document last 4 digits label. %@ is the 4-digit suffix.",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Document last 4 digits: %@" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Последние 4 цифры документа: %@" } }
+      }
+    },
+    "boarding_pass_seat" : {
+      "comment" : "Seat column header on boarding pass",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "SEAT" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "МЕСТО" } }
+      }
+    },
+    "boarding_pass_share" : {
+      "comment" : "Share button label",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Share Boarding Pass" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Поделиться посадочным" } }
+      }
+    },
+    "boarding_pass_title" : {
+      "comment" : "Navigation title for boarding pass screen",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Boarding Pass" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Посадочный талон" } }
+      }
+    },
+    "add_flight_title" : {
+      "comment" : "Navigation title for add flight screen",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Flight" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Добавить рейс" } }
+      }
+    },
+    "add_flight_section_flight_number" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Flight Number" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Номер рейса" } }
+      }
+    },
+    "add_flight_flight_number_placeholder" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g., SU 1234" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "напр., SU 1234" } }
+      }
+    },
+    "add_flight_section_route" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Route" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Маршрут" } }
+      }
+    },
+    "add_flight_from_placeholder" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "From (e.g., SVO)" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Откуда (напр., SVO)" } }
+      }
+    },
+    "add_flight_to_placeholder" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "To (e.g., JFK)" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Куда (напр., JFK)" } }
+      }
+    },
+    "add_flight_section_departure" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Departure" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Вылет" } }
+      }
+    },
+    "add_flight_section_arrival" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Arrival" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Прилёт" } }
+      }
+    },
+    "add_flight_date_time" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date & Time" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Дата и время" } }
+      }
+    },
+    "add_flight_section_passenger" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Passenger Info (Optional)" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Данные пассажира (необязательно)" } }
+      }
+    },
+    "add_flight_full_name" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Full Name" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Полное имя" } }
+      }
+    },
+    "add_flight_seat_placeholder" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Seat (e.g., 12A)" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Место (напр., 12A)" } }
+      }
+    },
+    "add_flight_doc_placeholder" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Document last 4 digits" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Последние 4 цифры документа" } }
+      }
+    },
+    "add_flight_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Flight" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Добавить рейс" } }
+      }
+    },
+    "cancel" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Отмена" } }
+      }
+    },
+    "flights_title" : {
+      "comment" : "Main screen navigation title",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "My Flights" } },
+        "ru" : { "stringUnit" : { "state" : "translated", "value" : "Мои рейсы" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

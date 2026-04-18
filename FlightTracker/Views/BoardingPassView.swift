@@ -21,7 +21,7 @@ struct BoardingPassView: View {
 
                 // Share button
                 ShareLink(item: shareText) {
-                    Label("Share Boarding Pass", systemImage: "square.and.arrow.up")
+                    Label("boarding_pass_share", systemImage: "square.and.arrow.up")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -32,7 +32,7 @@ struct BoardingPassView: View {
             }
             .padding()
         }
-        .navigationTitle("Boarding Pass")
+        .navigationTitle("boarding_pass_title")
         .navigationBarTitleDisplayMode(.inline)
     }
 
@@ -58,7 +58,7 @@ struct BoardingPassView: View {
             // Route
             HStack {
                 VStack(alignment: .leading) {
-                    Text("FROM")
+                    Text("boarding_pass_from")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Text(flight.departure.code)
@@ -82,7 +82,7 @@ struct BoardingPassView: View {
                 Spacer()
 
                 VStack(alignment: .trailing) {
-                    Text("TO")
+                    Text("boarding_pass_to")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Text(flight.arrival.code)
@@ -99,50 +99,49 @@ struct BoardingPassView: View {
             dashedLine
 
             // Details
-            HStack(spacing: 24) {
+            HStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("DATE")
+                    Text("boarding_pass_date")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Text(flight.departureTime.formatted(date: .abbreviated, time: .omitted))
                         .font(.subheadline)
                         .fontWeight(.semibold)
                 }
-
-                Spacer()
+                .frame(maxWidth: .infinity, alignment: .leading)
 
                 VStack(alignment: .center, spacing: 4) {
-                    Text("BOARDING")
+                    Text("boarding_pass_boarding")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Text(flight.boardingTime?.formatted(date: .omitted, time: .shortened) ?? "--:--")
                         .font(.subheadline)
                         .fontWeight(.semibold)
                 }
-
-                Spacer()
+                .frame(maxWidth: .infinity, alignment: .center)
 
                 if let terminal = flight.terminal {
                     VStack(alignment: .center, spacing: 4) {
-                        Text("TERMINAL")
+                        Text("boarding_pass_terminal")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                         Text(terminal)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
 
                 if let gate = flight.gate {
-                    Spacer()
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text("GATE")
+                        Text("boarding_pass_gate")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                         Text(gate)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                     }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
             .padding()
@@ -152,13 +151,15 @@ struct BoardingPassView: View {
     }
 
     private var dashedLine: some View {
-        HStack(spacing: 2) {
-            ForEach(0..<50, id: \.self) { _ in
-                Circle()
-                    .fill(.quaternary)
-                    .frame(width: 6, height: 6)
+        GeometryReader { geometry in
+            Path { path in
+                path.move(to: CGPoint(x: 0, y: 0.5))
+                path.addLine(to: CGPoint(x: geometry.size.width, y: 0.5))
             }
+            .stroke(style: StrokeStyle(lineWidth: 1.5, dash: [6, 4]))
+            .foregroundStyle(.quaternary)
         }
+        .frame(height: 1.5)
         .padding(.horizontal)
     }
 
@@ -175,7 +176,7 @@ struct BoardingPassView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
 
-            Text("Scan at boarding gate")
+            Text("boarding_pass_scan_hint")
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
@@ -187,7 +188,7 @@ struct BoardingPassView: View {
 
     private var passengerInfoSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Passenger")
+            Text("boarding_pass_passenger")
                 .font(.headline)
 
             HStack {
@@ -196,12 +197,25 @@ struct BoardingPassView: View {
                     .foregroundStyle(.secondary)
 
                 VStack(alignment: .leading) {
-                    Text("Passenger Name")
+                    Text(flight.passengerName ?? String(localized: "boarding_pass_not_specified"))
                         .font(.subheadline)
                         .fontWeight(.semibold)
-                    Text("Document last 4 digits: 1234")
+                    Text(String(format: String(localized: "boarding_pass_doc_last_four"), flight.documentLastFour ?? "----"))
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                }
+            }
+
+            if let seat = flight.seatNumber {
+                Divider()
+                HStack {
+                    Text("boarding_pass_seat")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Text(seat)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
                 }
             }
         }
@@ -212,13 +226,20 @@ struct BoardingPassView: View {
     }
 
     private var shareText: String {
-        """
+        var text = """
         🛫 Boarding Pass
         \(flight.flightNumber) | \(flight.airline)
         \(flight.departure.code) → \(flight.arrival.code)
         \(flight.departureTime.formatted(date: .abbreviated, time: .shortened))
         Terminal: \(flight.terminal ?? "-") | Gate: \(flight.gate ?? "-")
         """
+        if let name = flight.passengerName {
+            text += "\nPassenger: \(name)"
+        }
+        if let seat = flight.seatNumber {
+            text += " | Seat: \(seat)"
+        }
+        return text
     }
 
     private func generateQRCode(from string: String) -> UIImage? {

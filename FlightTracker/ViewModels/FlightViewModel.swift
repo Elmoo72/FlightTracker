@@ -56,11 +56,27 @@ final class FlightViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
 
+        let snapshot = flights
+
         do {
-            for i in flights.indices {
-                let flight = flights[i]
-                let status = try await apiService.fetchFlightStatus(flightNumber: flight.flightNumber)
-                flights[i].status = status
+            let updates: [(UUID, FlightStatus)] = try await withThrowingTaskGroup(of: (UUID, FlightStatus).self) { group in
+                for flight in snapshot {
+                    group.addTask {
+                        let status = try await self.apiService.fetchFlightStatus(flightNumber: flight.flightNumber)
+                        return (flight.id, status)
+                    }
+                }
+                var results: [(UUID, FlightStatus)] = []
+                for try await result in group {
+                    results.append(result)
+                }
+                return results
+            }
+
+            for (id, status) in updates {
+                if let i = flights.firstIndex(where: { $0.id == id }) {
+                    flights[i].status = status
+                }
             }
             saveFlights()
         } catch {

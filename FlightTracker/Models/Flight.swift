@@ -41,6 +41,11 @@ struct Flight: Codable, Identifiable, Hashable {
     // Delay in minutes (from API)
     var delayMinutes: Int?
 
+    // Passenger info (optional, set by user)
+    var passengerName: String?
+    var seatNumber: String?
+    var documentLastFour: String?
+
     static let mock = Flight(
         id: UUID(),
         flightNumber: "SU 1234",
